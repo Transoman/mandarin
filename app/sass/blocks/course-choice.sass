@@ -1,0 +1,195 @@
+.training
+	padding: 170px 0 270px 0
+	background-position: center
+	background-repeat: no-repeat
+	background-size: cover
+	h3
+		margin-bottom: 0
+		font-size: 18px
+		color: $dark-gray
+	p
+		color: $main-color
+		font-size: 16px
+		margin-bottom: 0
+	.section-title
+		margin-bottom: 150px
+	&__list
+		padding: 0 240px
+		display: flex
+		flex-direction: row
+		flex-wrap: wrap
+	&__item
+		position: relative
+		width: 49%
+		min-height: 80px
+		padding-left: 100px
+		padding-right: 15px
+		margin-bottom: 80px
+		&:last-child
+			margin-bottom: 0
+		img
+			position: absolute
+			left: 0
+			top: 0
+			width: 80px
+			height: 80px
+
+.free-chinese
+	text-align: center
+	h2
+		color: $dark-gray
+		text-transform: uppercase
+		font-size: 18px
+		margin-bottom: 20px
+	h3
+		color: $dark-gray
+		font-size: 24px
+		font-weight: 800
+		margin-bottom: 20px
+	p
+		font-size: 18px
+		color: #677179
+		margin-bottom: 60px
+	&__wrap
+		margin: 0 90px
+		border: 10px solid #ebf1f3
+		padding: 40px
+		position: relative
+		a
+			position: absolute
+			left: 50%
+			bottom: -17px
+			transform: translate(-50%, 0)
+			background-color: #fff
+			padding: 0 25px
+			color: $accent
+			font-size: 16px
+			text-decoration: underline
+			white-space: nowrap
+
+.choice-course-form
+	display: flex
+	flex-wrap: wrap
+	padding-left: 30px
+	.form-group
+		width: 31.37%
+		margin-bottom: 30px
+		padding: 0 15px
+	.form__label
+		display: block
+
+
+.choice-course
+	&__item-right
+		padding: 20px 30px
+		background: #f6f7f7
+		h3
+			margin-bottom: 20px
+			font-size: 18px
+			font-weight: 900
+			color: $dark-gray
+		.btn
+			margin-top: 35px
+			color: $main-color
+			&:hover, &:focus
+				color: #fff
+	&__filter
+		justify-content: center
+		margin-bottom: 50px
+	&__label
+		font-size: 16px
+		font-weight: 600
+		color: $dark-gray
+	&__select
+		height: 20px
+		margin-bottom: 15px
+		padding-left: 10px
+		border-left: 10px solid #d6e0e4
+		&-progress
+			height: 100%
+			background: $accent
+			+transition
+			text-align: center
+			a
+				color: #fff
+				text-decoration: underline
+				&:hover
+					text-decoration: none
+	&__result
+		margin-top: 70px
+		padding-bottom: 50px
+		border-bottom: 2px solid #eaeaea
+		.section-separate
+			margin-bottom: 50px
+			font-size: 18px
+			font-weight: 900
+			color: $dark-gray
+			&::before
+				height: 2px
+				background: #eaeaea
+		&-items
+			display: flex
+			text-align: center
+			justify-content: center
+		&-item
+			margin-right: 50px
+			padding: 0 15px
+			&:last-child
+				margin-right: 0
+			p
+				margin-bottom: 5px
+				font-size: 48px
+				line-height: 1
+				font-weight: 900
+				color: $dark-gray
+			span
+				font-size: 18px
+	&__title
+		font-size: 18px
+		font-weight: 600
+		color: $dark-gray
+	&__val
+		position: relative
+		display: flex
+		justify-content: space-between
+		margin-bottom: 15px
+		z-index: 1
+		// span
+		// 	position: relative
+		// 	width: 33.33%
+		// 	&::after
+		// 		content: ''
+		// 		position: absolute
+		// 		bottom: -24px
+		// 		right: 0
+		// 		left: 0
+		// 		width: 12px
+		// 		height: 12px
+		// 		margin: 0 auto
+		// 		background: #d6e0e4
+		// 		border-radius: 50%
+		// 	&.selected
+		// 		&::after
+		// 			background-color: $accent
+	&__range
+		height: 6px
+		background: #d6e0e4
+		border: 0
+		.noUi-connect
+			background: $accent
+		.noUi-handle
+			width: 16px
+			height: 16px
+			border-radius: 100%
+			border: 3px solid #fff
+			background: $accent
+			box-shadow: 0 10px 30px rgba(#000, 0.5)
+			cursor: pointer
+			&::before, &::after
+				display: none
+			&:focus
+				outline: none
+				background: darken($accent, 10%)
+
+html:not([dir=rtl]) .noUi-horizontal .noUi-handle
+	right: -8px

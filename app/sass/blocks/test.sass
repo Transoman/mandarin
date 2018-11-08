@@ -1,0 +1,158 @@
+.test
+	padding-bottom: 80px
+	&__filter
+		display: flex
+		justify-content: center
+		margin-bottom: 80px
+		&-btn
+			@extend .filter__btn
+			&.active
+				@extend .filter__btn.is-checked
+	&__item
+		&-right
+			position: relative
+			h3
+				font-size: 24px
+				font-weight: 700
+				color: $dark-gray
+				text-align: center
+		&.active
+			position: relative
+			@extend .contact__content-wrap.active
+			.loader
+				opacity: 1
+				visibility: visible
+	&__content
+		padding-left: 70px
+		background:
+			position: right center
+			repeat: no-repeat
+			size: contain
+	&__question
+		color: $dark-gray
+	&__answer-form
+		margin-top: 40px
+		.form-group
+			margin-bottom: 15px
+	&__submit
+		margin-top: 40px
+	&__note
+		display: none
+		position: absolute
+		right: 20px
+		bottom: 20px
+	&__end
+		display: none
+		text-align: center
+		h4
+			font-size: 26px
+			color: $darken-gray
+		p
+			font-size: 16px
+			span
+				font-weight: 700
+				color: $accent
+
+.test-breadcrumb
+	margin: 0
+	margin-bottom: 45px
+	padding: 0
+	list-style: none
+	display: flex
+	flex-wrap: wrap
+	&__item
+		position: relative
+		margin-right: 3px
+		margin-bottom: 2px
+		padding: 8px 35px
+		border-right: 0
+		font-size: 18px
+		font-weight: 600
+		line-height: 1
+		z-index: 1
+		&::before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			height: 51%
+			width: 100%
+			background: transparent
+			border: 1px solid #eaeaea
+			border-bottom: none
+			transform: skew(15deg, 0deg)
+			z-index: -1
+		&::after
+			content: ''
+			position: absolute
+			bottom: 0
+			right: 0
+			height: 50%
+			width: 100%
+			background: transparent
+			border: 1px solid #eaeaea
+			border-top: none
+			transform: skew(-15deg, 0deg)
+			z-index: -1
+		&:last-child
+			margin-right: 0
+		&.active
+			color: #fff
+			&::before, &::after
+				background: $accent
+				border-color: $accent
+
+.test-opinion
+	padding-top: 100px
+	background: url('../img/test-opinion-bg.jpg') no-repeat center / cover
+	.section-title
+		margin-bottom: 100px
+		overflow: hidden
+		span
+			position: relative
+			display: inline-block
+			&::before, &::after
+				content: ''
+				position: absolute
+				top: 50%
+				width: 1000px
+				height: 1px
+				background: #eaeaea
+			&::before
+				right: 100%
+				margin-right: 50px
+			&::after
+				left: 100%
+				margin-left: 50px
+	&__content
+		position: relative
+		max-width: 940px
+		width: 100%
+		margin: 0 auto
+		text-align: center
+		img
+			margin-bottom: 20px
+			border-radius: 50%
+		&::before
+			content: '\f10d'
+			+font-aw
+			display: block
+			margin-bottom: 15px
+			font-size: 30px
+			color: $accent
+	blockquote
+		margin: 0 0 55px
+		font-size: 24px
+		font-weight: 600
+		font-style: italic
+	&__author
+		margin: 0
+		font-size: 18px
+		font-weight: 600
+		color: $dark-gray
+		font-style: normal
+
+
+.test-page
+	.hero
+		padding: 50px 0

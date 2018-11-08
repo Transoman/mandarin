@@ -1,0 +1,136 @@
+.translation-page
+	&__services
+		background-position: center 25%
+		background-size: cover
+		text-align: center
+		padding-bottom: 0
+		.section-title
+			position: relative
+			&::before
+				content: ''
+				display: block
+				width: 42px
+				height: 35px
+				margin: 0 auto
+				background: url('../img/icon/icon-language.svg') no-repeat
+		&_wrap
+			padding: 0 105px
+			margin-bottom: 60px
+		&_item
+			position: relative
+			top: 0
+			display: flex
+			justify-content: space-between
+			flex-direction: column
+			height: calc(100% - 30px)
+			margin-bottom: 30px
+			background: #fff
+			border-radius: 8px
+			overflow: hidden
+			box-shadow: 0 10px 30px rgba(0, 0, 0, .15)
+			+transition
+			&:hover, &:focus
+				box-shadow: 0 10px 30px rgba(0, 0, 0, .25)
+				top: -10px
+		p
+			font-size: 18px
+			color: $dark-gray
+			font-weight: 600
+			margin-bottom: 40px
+			flex-grow: 1
+		strong
+			display: block
+			margin-bottom: 45px
+			font-size: 24px
+			color: $dark-gray
+			font-weight: 800
+		&_wrap-img
+			position: relative
+			overflow: hidden
+			z-index: 1
+			margin-bottom: 40px
+			&::before
+				content: ""
+				position: absolute
+				top: 0
+				bottom: 0
+				width: 100%
+				background-image: linear-gradient(-90deg,rgba(42,146,245,.7),rgba(255,255,255,0))
+
+			img
+				width: 100%
+				height: auto
+		&-content
+			padding: 0 35px
+
+	&__btn
+		width: 180px
+		margin: 0 auto
+		margin-bottom: 35px
+
+	&__advantages
+		padding: 140px 0
+		background-position: center
+		h3
+			color: #677179
+			span
+				font-weight: 700
+				line-height: 1
+
+		p
+			color: #677179
+			strong
+				font-size: 20px
+				line-height: 1
+				font-weight: 700
+
+		.pluses__left
+			border: 6px solid #ebf6f6
+			img
+				margin-bottom: 35px
+
+		.pluses-list__item:nth-child(1)::after, .pluses-list__item:nth-child(4)::after
+			display: none
+
+		.pluses__right
+			svg
+				fill: #F08604
+
+		.pluses-list__item
+			padding-left: 110px
+			padding-right: 0
+			&:nth-child(1)
+				padding-top: 45px
+			&:nth-child(2)
+				padding-top: 45px
+			&:nth-child(n+3)
+				svg
+					top: 50px
+
+			svg
+				top: 50px
+
+.translation
+	.testimonial-client
+		padding-bottom: 0
+		.section-title
+			margin-bottom: 80px
+			overflow: hidden
+			&::before
+				display: none
+			span
+				position: relative
+				display: inline-block
+				&::before, &::after
+					content: ''
+					position: absolute
+					top: 50%
+					width: 1000px
+					height: 1px
+					background: #eaeaea
+				&::before
+					right: 100%
+					margin-right: 20px
+				&::after
+					left: 100%
+					margin-left: 20px

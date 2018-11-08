@@ -1,0 +1,212 @@
+.schedule-main
+	.test
+		background-position: center
+		background-repeat: no-repeat
+		background-size: cover
+		.section-title
+			margin-bottom: 15px
+		.sub-title
+			text-align: center
+			margin-bottom: 50px
+			font-size: 16px
+			color: #677179
+	.content__container
+		padding: 0 120px
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		align-items: flex-start
+	.content
+		padding: 0
+		width: 60%
+		li
+			font-weight: 400
+		strong
+			color: $dark-gray
+
+.application
+	background-color: #f4f8fb
+	padding: 20px
+	color: #677179
+	font-size: 16px
+	h3
+		font-size: 17px
+		color: #222
+	a
+		color: $accent
+		font-weight: 600
+		white-space: nowrap
+
+.schedule
+	padding-top: 0
+
+.schedule-filter-group
+	border-top: 1px solid #eaeaea
+	&__wrap
+		display: flex
+		align-items: center
+		margin-bottom: 50px
+		padding: 20px 120px 0
+		b
+			margin-right: 20px
+			font-size: 16px
+			font-weight: 600
+			color: $dark-gray
+	&__btns
+		flex-wrap: wrap
+	&__btn
+		margin-right: 5px
+		padding: 0 15px
+		background: none
+		border: 2px solid transparent
+		border-radius: 25px
+		font-size: 16px
+		font-weight: 700
+		color: $main-color
+		+transition
+		&:first-child, &:last-child
+			border-radius: 25px
+		&:first-child
+			border-left: 2px solid transparent
+		&:last-child
+			margin-right: 0
+		&:hover
+			border-color: $accent
+			background-color: #f4f8fb
+			color: $dark-gray
+			box-shadow: none
+		&.is-checked
+			border-color: $accent
+			border-left-color: $accent
+			background-color: #f4f8fb
+			color: $dark-gray
+			box-shadow: none
+
+.schedule-filter-group-content
+	&__item
+		display: none
+		&.active
+			display: block
+
+.schedule-tabs
+	&__btns
+		display: flex
+		margin-bottom: 45px
+		padding: 0 120px
+		border-bottom: 1px solid #eaeaea
+	&__btn
+		// display: block
+		padding: 7px 30px
+		background: #eff1f1
+		border: 1px solid $gray
+		border-left: 0
+		border-bottom: 0
+		font-size: 16px
+		font-weight: 600
+		color: $main-color
+		cursor: pointer
+		+transition
+		&:first-child
+			border-left: 1px solid $gray
+			border-radius: 6px 0 0 0
+		&:last-child
+			border-radius: 0 6px 0 0
+		&:hover, &:focus
+			background-color: $blue
+			border-color: $blue
+			color: #fff
+			box-shadow: 0 10px 30px rgba($blue, 0.5)
+			outline: none
+		&.is-checked
+			background-color: $blue
+			border-color: $blue
+			color: #fff
+			box-shadow: 0 10px 30px rgba($blue, 0.5)
+
+.schedule-tabs-content
+	&__item
+		display: none
+		&.active
+			display: block
+		> .btn
+			float: right
+			margin-right: 140px
+			padding-right: 55px
+			padding-left: 55px
+			color: $main-color
+			&:hover, &:focus
+				color: #fff
+
+.schedule-table-wrap
+	margin-bottom: 50px
+	overflow-x: auto
+
+.schedule-table
+	width: 100%
+	position: relative
+	td
+		padding: 20px
+		&:first-child
+			padding-left: 120px
+		&:last-child
+			padding-right: 120px
+		&:nth-child(4)
+			max-width: 230px
+		&:nth-child(6)
+			padding-left: 40px
+	&__head
+		font-size: 16px
+		font-weight: 700
+		color: $dark-gray
+		white-space: nowrap
+	&__body
+		+transition
+		tr
+			border-bottom: 1px solid #eaeaea
+		td
+			padding: 20px
+			vertical-align: top
+		&.active
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				right: 0
+				bottom: 0
+				left: 0
+				background: rgba(#fff, 0.5) url('../img/loader.gif') no-repeat center
+	&__filter
+		background: #f4f8fb
+		td
+			padding-top: 10px
+			padding-bottom: 10px
+		.form__select
+			font-size: 14px
+	&__date
+		font-weight: 600
+		color: $dark-gray
+	&__schedule
+		background: #f4f8fb
+	&__price
+		font-size: 16px
+		font-weight: 700
+		color: $dark-gray
+		white-space: nowrap
+	&__order
+		.btn
+			padding: 8px 20px
+			border-radius: 4px
+			box-shadow: none
+			font-size: 14px
+			font-weight: 600
+		p
+			margin: 0
+			margin-top: 10px
+	&__no-data
+		font-size: 16px
+		font-weight: 600
+		color: $dark-gray
+		text-align: center
+	&__more-row
+		text-align: right
+		border-bottom: 0
