@@ -57,6 +57,7 @@ a
 
 /* Buttons */
 .btn
+	position: relative
 	display: inline-block
 	vertical-align: middle
 	padding: 17px 25px
@@ -75,9 +76,24 @@ a
 	transition: all .25s ease
 	border-radius: 50px
 	box-shadow: 0 10px 50px rgba(#f08604, 0.5)
+	overflow: hidden
+	&::before
+		content: ''
+		position: absolute
+		left: 0
+		top: 0
+		display: block
+		width: 60px
+		height: 100%
+		background-color: rgba(#fff, 0.5)
+		filter: blur(30px)
+		transform: translateX(-200%) skewX(-15deg)
+		+transition(1s)
 	&:hover
 		background-color: lighten($accent, 10%)
 		color: #fff
+		&::before
+			transform: translateX(400px) skewX(-15deg)
 	&:active
 		background-color: darken($accent, 10%)
 	&:focus

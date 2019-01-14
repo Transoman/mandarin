@@ -4,6 +4,8 @@ var gulp         = require('gulp'),
 		concat       = require('gulp-concat'), // З'єднує (конкатенує) файли
 		autoprefixer = require('autoprefixer'), // PostCss autoprefixer - автоматично формує вендорні префікси
 		cssmin       = require('gulp-cssmin'), // Мініфікація css
+		uglify       = require('gulp-uglify'),
+		babel        = require('gulp-babel'),
 		rename       = require('gulp-rename'), // Перейменування файлу
 		postcss      = require('gulp-postcss'), // PostCss
 		mqpacker     = require('css-mqpacker'), // Збирає всі медіа-запити в одному місці
@@ -56,7 +58,8 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
 	return gulp.src('app/js/common.js')
 	.pipe(plumber())
-	// .pipe(uglify())
+	.pipe(babel())
+	.pipe(uglify())
 	.pipe(rename({suffix: '.min'}))
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.stream());
@@ -66,28 +69,18 @@ gulp.task('script', function() {
 	return gulp.src([
 			'app/libs/jquery/dist/jquery.min.js',
 			'app/libs/jquery-popup-overlay/jquery.popupoverlay.js',
-			// 'app/libs/jquery-mask-plugin/dist/jquery.mask.min.js',
 			'app/libs/jquery-validation/dist/jquery.validate.min.js',
 			'app/libs/swiper/dist/js/swiper.min.js',
 			'app/libs/fancybox/dist/jquery.fancybox.min.js',
 			'app/libs/isotope-layout/dist/isotope.pkgd.min.js',
 			'app/libs/matchHeight/dist/jquery.matchHeight-min.js',
-			// 'app/libs/jqplot/jquery.jqplot.min.js',
 			'app/libs/nouislider/distribute/nouislider.min.js',
 			'app/libs/flickity/dist/flickity.pkgd.min.js',
-			'app/libs/waypoints/lib/jquery.waypoints.min.js',
-			'app/libs/counter-up/jquery.counterup.min.js',
 			'app/libs/highcharts/highcharts.src.js',
 			'node_modules/imask/dist/imask.min.js'
-			// 'app/libs/jcarousel/dist/jquery.jcarousel.min.js',
-			// 'app/libs/fullpage.js/dist/jquery.fullpage.min.js',
-			// 'app/libs/jScrollPane/script/jquery.mousewheel.js',
-			// 'app/libs/jScrollPane/script/jquery.jscrollpane.min.js',
-			// 'app/libs/air-datepicker/dist/js/datepicker.min.js',
-			// 'app/libs/jt.timepicker/jquery.timepicker.min.js',
 		])
 	.pipe(concat('script.js'))
-	// .pipe(uglify())
+	.pipe(uglify())
 	.pipe(gulp.dest('app/js/'));
 });
 

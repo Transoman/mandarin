@@ -150,7 +150,7 @@ jQuery(document).ready(function($) {
     var btnNext = '.button-next-' + i;
     var btnPrev = '.button-prev-' + i;
 
-    diplomaSlider = new Swiper ('.teacher-diploma-slider-' + i, {
+    var diplomaSlider = new Swiper ('.teacher-diploma-slider-' + i, {
       slidesPerView: 4,
       spaceBetween: 20,
       breakpoints: {
@@ -174,7 +174,7 @@ jQuery(document).ready(function($) {
   });
 
   // Testimonial slider
-  testimonialSlider = new Swiper ('.testimonial-slider', {
+  var testimonialSlider = new Swiper ('.testimonial-slider', {
     slidesPerView: 2,
     spaceBetween: -240,
     centeredSlides: true,
@@ -197,7 +197,7 @@ jQuery(document).ready(function($) {
   });
 
   // Testimonial client slider
-  testimonialClientSlider = new Swiper ('.testimonial-client-slider', {
+  var testimonialClientSlider = new Swiper ('.testimonial-client-slider', {
     slidesPerView: 1,
     spaceBetween: 240,
     breakpoints: {
@@ -605,10 +605,10 @@ jQuery(document).ready(function($) {
     jQuery.fn.lightTabs = function(options){
 
       var createTabs = function(){
-        tabs = this;
-        i = 0;
+        var tabs = this;
+        var i = 0;
 
-        showPage = function(i){
+        var showPage = function(i){
           $(tabs).find(".filters-content").children("div").hide();
           $(tabs).find(".filters-content").children("div").eq(i).show();
           $(tabs).find(".filter__btn").removeClass("is-checked");
@@ -691,11 +691,16 @@ jQuery(document).ready(function($) {
       messages: {
         name: "Введите Ваше имя",
         phone: "Введите Ваш телефон",
+        email: "Введите Ваш E-mail",
       },
       rules: {
         "phone": {
           required: true,
           phoneno: true
+        },
+        email: {
+          required: true,
+          email: true
         }
       },
       submitHandler: function(form) {
@@ -824,23 +829,6 @@ jQuery(document).ready(function($) {
         ajaxSend("." + id, t);
       }
     });
-  });
-
-  $(".action-form").validate({
-    messages: {
-      name: "Введите Ваше имя",
-      phone: "Введите Ваш телефон",
-    },
-    rules: {
-      "phone": {
-        required: true,
-        phoneno: true
-      }
-    },
-    submitHandler: function(form) {
-      var t = $(".action-form").serialize();
-      ajaxSend('.action-form', t);
-    }
   });
 
   $(".subscribe-form").validate({
@@ -1029,11 +1017,7 @@ jQuery(document).ready(function($) {
       }
     },
     submitHandler: function(form) {
-      var t = {
-        name: jQuery(".calc-course-form").find("input[name=name]").val(),
-        phone: jQuery(".calc-course-form").find("input[name=phone]").val(),
-        subject: jQuery(".calc-course-form").find("input[name=subject]").val()
-      };
+      var t = $(".calc-course-form").serialize();
       ajaxSend('.calc-course-form', t);
     }
   });
@@ -1042,16 +1026,69 @@ jQuery(document).ready(function($) {
   function ajaxSend(formName, data) {
     jQuery.ajax({
       type: "POST",
-      url: "/wp-conetnt/themes/mandarin/sendmail.php",
+      url: "/wp-content/themes/mandarin/sendmail.php",
       data: data,
       success: function() {
         $(".modal").popup("hide");
         $("#thanks").popup("show");
+        goal_send_form();
         setTimeout(function() {
           $(formName).trigger('reset');
         }, 2000);
       }
     });
+  }
+
+  function goal_ya(goal_id) {
+    try{
+      yaCounter33889619.reachGoal(goal_id);
+    }catch(e){};
+  };
+  var goal_id = '';
+  $('#make_a_call').on('click', function () {
+    goal_id = 'OPENCALLBACKFORM';
+    goal_ya(goal_id);
+  });
+  $('#one_button').on('click', function () {
+    goal_id = 'SENDBANNERFORM';
+  });
+  $('.teacher_consult, #teacher_popup_get_consult.button').on('click', function () {
+    goal_id = 'OPENTEACHERFORM';
+    goal_ya(goal_id);
+  });
+  $('.certificate__right .btn').on('click', function () {
+    goal_id = 'OPENCERTFORM';
+    goal_ya(goal_id);
+  });
+  $('.group_open').on('click', function () {
+    goal_id = 'OPENPRICEFORM';
+    goal_ya(goal_id);
+  });
+  $('#calc_button').on('click', function () {
+    goal_id = 'SENDCALCFORM';
+  });
+  $('#eleven_btn').on('click', function () {
+    goal_id = 'OPENFOOTERCALLBACKFORM';
+    goal_ya(goal_id);
+  });
+
+  function goal_send_form() {
+    if (goal_id=='OPENCALLBACKFORM') {
+      goal_id = 'SENDCALLBACKFORM';
+    }
+    if (goal_id=='OPENFOOTERCALLBACKFORM') {
+      goal_id = 'SENDFOOTERCALLBACKFORM';
+    }
+    if (goal_id=='OPENTEACHERFORM') {
+      goal_id = 'SENDTEACHERFORM';
+    }
+    if (goal_id=='OPENCERTFORM') {
+      goal_id = 'SENDCERTFORM';
+    }
+    if (goal_id=='OPENPRICEFORM') {
+      goal_id = 'SENDPRICEFORM';
+    }
+      goal_ya(goal_id);
   }
 
   if( $('.choice-course__range--time').length ) {
